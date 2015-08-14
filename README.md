@@ -18,3 +18,8 @@ Example
     recipe = zipeggs:zipeggs
     target = dist
     source = eggs
+
+
+CREDITS
+-------
+Thanks to @rajeshmr(https://github.com/rajeshmr) for the inspiration and sharing the code snippet to create zips.
