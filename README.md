@@ -14,7 +14,7 @@ Usage
 Example
 -------
 
-[zip]
-recipe = zipeggs:zipeggs
-target = dist
-source = eggs
+    [zip]
+    recipe = zipeggs:zipeggs
+    target = dist
+    source = eggs
