@@ -10,3 +10,11 @@ Usage
 1. Add the recipe as zipeggs
 2. Specify target=dir where you want the zipped eggs to be
 3. Specify source=dir the directory to find flattened eggs.
+
+Example
+-------
+
+[zip]
+recipe = zipeggs:zipeggs
+target = dist
+source = eggs
