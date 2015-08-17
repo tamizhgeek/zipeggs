@@ -1,6 +1,14 @@
+# Created by .ignore support plugin (hsz.mobi)
+### IPythonNotebook template
+# Temporary data
+.ipynb_checkpoints/
+
+
+### Python template
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
+*$py.class
 
 # C extensions
 *.so
@@ -55,3 +63,17 @@ docs/_build/
 
 # PyBuilder
 target/
+
+
+### VirtualEnv template
+# Virtualenv
+# http://iamzed.com/2009/05/07/a-primer-on-virtualenv/
+.Python
+[Bb]in
+[Ii]nclude
+[Ll]ib
+[Ss]cripts
+pyvenv.cfg
+pip-selfcheck.json
+
+
