@@ -13,7 +13,7 @@ class ZipEggs:
         if self.target_dir is None:
             raise zc.buildout.UserError('Invalid Target {t!r}'.format(t=self.target_dir))
 
-    def zipit(self):
+    def _zipit(self):
         if not os.path.exists(self.target_dir):
             os.makedirs(self.target_dir)
         for entry in os.listdir(self.source_dir):
@@ -23,12 +23,12 @@ class ZipEggs:
                 print "ZipEggs: {s} > {t}".format(s=source, t=target)
                 shutil.make_archive(target, "zip", source)
                 os.rename(target + ".zip", target)
+                yield target
             except OSError, e:
                 print "ZipEggs: ignore {s!r}: {e!r}".format(s=entry, e=e)
-        return []
 
     def install(self):
-        return self.zipit()
+        return list(self._zipit())
 
     def update(self):
-        return self.zipit()
+        return list(self._zipit())
