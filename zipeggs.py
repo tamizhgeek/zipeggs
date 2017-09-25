@@ -6,26 +6,25 @@ import zc.buildout
 
 class ZipEggs:
     def __init__(self, buildout, name, options):
-        self.name, self.options = name, options
-        if options['target'] is None:
-            raise zc.buildout.UserError('Invalid Target')
-        if options['source'] is None:
-            raise zc.buildout.UserError('Invalid Source')
+        self.source_dir = options['source']
+        self.target_dir = options['target']
+        if not os.path.isdir(self.source_dir):
+            raise zc.buildout.UserError('Invalid Source {s!r}'.format(s=self.source_dir))
+        if self.target_dir is None:
+            raise zc.buildout.UserError('Invalid Target {t!r}'.format(t=self.target_dir))
 
     def zipit(self):
-        target_dir = self.options['target']
-        if not os.path.exists(target_dir):
-            os.makedirs(target_dir)
-        source_dir = self.options['source']
-        for entry in os.listdir(source_dir):
+        if not os.path.exists(self.target_dir):
+            os.makedirs(self.target_dir)
+        for entry in os.listdir(self.source_dir):
             try:
-                source = os.path.join(source_dir, entry)
-                target = os.path.join(target_dir, entry)
-                print "%s > %s" % (source, target)
+                source = os.path.join(self.source_dir, entry)
+                target = os.path.join(self.target_dir, entry)
+                print "ZipEggs: {s} > {t}".format(s=source, t=target)
                 shutil.make_archive(target, "zip", source)
                 os.rename(target + ".zip", target)
-            except OSError:
-                print "ignore %s" % entry
+            except OSError, e:
+                print "ZipEggs: ignore {s!r}: {e!r}".format(s=entry, e=e)
         return []
 
     def install(self):
