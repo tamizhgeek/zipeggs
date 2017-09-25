@@ -12,7 +12,7 @@ class ZipEggs:
     def zipit(self):
         target_dir = self.options['target']
         if not os.path.exists(target_dir):
-            os.mkdir(target_dir)
+            os.makedirs(target_dir)
         source_dir = self.options['source']
         for entry in os.listdir(source_dir):
             try:
