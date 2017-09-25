@@ -10,19 +10,19 @@ class ZipEggs:
 
 
     def zipit(self):
-        target = self.options['target']
-        if not os.path.exists(target):
-            os.mkdir(target)
-        path = self.options['source']
-        for dirs in os.listdir(path):
+        target_dir = self.options['target']
+        if not os.path.exists(target_dir):
+            os.mkdir(target_dir)
+        source_dir = self.options['source']
+        for entry in os.listdir(source_dir):
             try:
-                source = os.path.join(path, dirs)
-                dist = "%s/%s" % (target, dirs)
-                print "%s > %s" % (source, dist)
-                shutil.make_archive(dist, "zip", source)
-                os.rename(dist+".zip", dist)
+                source = os.path.join(source_dir, entry)
+                target = "%s/%s" % (target_dir, entry)
+                print "%s > %s" % (source, target)
+                shutil.make_archive(target, "zip", source)
+                os.rename(target+".zip", target)
             except OSError:
-                print "ignore %s" % dirs
+                print "ignore %s" % entry
         return []
 
     def install(self):
