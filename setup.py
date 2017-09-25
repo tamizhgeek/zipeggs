@@ -1,8 +1,13 @@
 from setuptools import setup
 
 setup(
-    name = "zipeggs",
-    entry_points = {'zc.buildout': ['zipeggs = zipeggs:ZipEggs']},
+    name="zipeggs",
+    entry_points={
+        'zc.buildout': [
+            'default = zipeggs:ZipEggs',
+            'zipeggs = zipeggs:ZipEggs',  # Legacy
+        ],
+    },
     py_modules=['zipeggs'],
     version="0.9"
-    )
+)

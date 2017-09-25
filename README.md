@@ -15,7 +15,7 @@ Example
 -------
 
     [zip]
-    recipe = zipeggs:zipeggs
+    recipe = zipeggs
     target = dist
     source = eggs
 
