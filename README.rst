@@ -1,8 +1,11 @@
 Zipeggs
 -------
 
-Buildout when collecting eggs, always flattens out the eggs as directories. We had a requirement where the eggs are needed as zips not as dirs. So this recipe.
-This will take a folder as input, iterate through the folders in it and create zip archives out of all folders inside it.
+Buildout when collecting eggs, always flattens out the eggs as
+directories. We had a requirement where the eggs are needed as zips not
+as dirs. So this recipe. This will take a folder as input, iterate
+through the folders in it and create zip archives out of all folders
+inside it.
 
 Usage
 -----
@@ -14,15 +17,18 @@ Usage
 Example
 -------
 
+::
+
     [zip]
     recipe = zipeggs
     target = dist
     source = eggs
 
-
 CREDITS
 =======
+
 Contributors
 ------------
+
 1. @rajeshmr(https://github.com/rajeshmr)
 2. @soxofaan(https://github.com/soxofaan)
