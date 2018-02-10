@@ -25,3 +25,4 @@ CREDITS
 Contributors
 ------------
 1. @rajeshmr(https://github.com/rajeshmr)
+2. @soxofaan(https://github.com/soxofaan)
