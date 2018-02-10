@@ -9,5 +9,5 @@ setup(
         ],
     },
     py_modules=['zipeggs'],
-    version="0.9"
+    version="1.0"
 )
